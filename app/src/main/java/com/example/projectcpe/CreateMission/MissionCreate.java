@@ -78,10 +78,12 @@ public class MissionCreate extends AppCompatActivity {
             return;
         }
 
-//        Mission create = new Mission(etName.getText().toString().trim(), etDetail.getText().toString().trim()
-//                , Integer.parseInt(etAge.getText().toString()),Integer.parseInt(spinner.getSelectedItem().toString()));
-//
-//        MissionDATABASE.getInstance(MissionCreate.this).missionDAO().create(create);
+        Mission create = new Mission(etName.getText().toString().trim(), etDetail.getText().toString().trim()
+                , Integer.parseInt(etAge.getText().toString()),Integer.parseInt(spinner.getSelectedItem().toString()));
+
+        MissionDATABASE.getInstance(MissionCreate.this).missionDAO().create(create);
+
+
 //          Intent i  = new Intent(MissionCreate.this, HomePage.class);
 //          startActivity(i);
 //          finish();

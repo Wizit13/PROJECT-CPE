@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -23,6 +24,8 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectcpe.Adapter.StepAdapter;
@@ -44,8 +47,10 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
     String getName, getDetail;
     int getNumOfStep, getAge;
     Button btSubmit;
+    LinearLayout frameEdittext;
 
     public ImageView mediumImage;
+    EditText addEdittext;
 
 
     private  final int CAMERA_RESULT_CODE = 100;
@@ -124,6 +129,7 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
         recyclerViewStep = findViewById(R.id.recyclerViewStepCreate);
         recyclerViewStep.setHasFixedSize(true);
         recyclerViewStep.setLayoutManager(new LinearLayoutManager(this));
+         frameEdittext = findViewById(R.id.frameEdittext);
 
 //        for (int i = 0 ; i<)
 //
@@ -132,6 +138,8 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
         recyclerViewStep.setAdapter(adapter);
 
     }
+
+
 
     @Override
     public void oncustompictureclick(final int pos, final ImageView imageView) {
@@ -234,4 +242,12 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
-}
+
+
+
+
+
+    }
+
+
+

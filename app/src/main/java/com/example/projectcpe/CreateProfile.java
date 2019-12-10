@@ -101,11 +101,19 @@ EditText _etName1,_etName2,_etName4,_etName3,   _etAge1, _etAge2, _etAge3, _etAg
                     member1.putString("Mname1", _etName1.getText().toString());
                     member1.commit();
 
+                    SharedPreferences.Editor age1 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                    member1.putString("Aname1",_etAge1.getText().toString()) ;
+                    member1.commit();
+
                     /// MEMBER2
                     SharedPreferences.Editor member2 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER2, MODE_PRIVATE).edit();
                     member2.putString("Mname2", _etName2.getText().toString());
                     //member2.putInt("Mage2", Integer.parseInt(age2));
                     member2.commit();
+
+                    SharedPreferences.Editor age2 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                    member1.putString("Aname2",_etAge2.getText().toString()) ;
+                    member1.commit();
 
                     /// MEMBER3
                     SharedPreferences.Editor member3 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER3, MODE_PRIVATE).edit();
@@ -113,11 +121,19 @@ EditText _etName1,_etName2,_etName4,_etName3,   _etAge1, _etAge2, _etAge3, _etAg
                     //member3.putInt("Mage3", Integer.parseInt(age3));
                     member3.commit();
 
+                    SharedPreferences.Editor age3 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                    member1.putString("Aname3",_etAge3.getText().toString()) ;
+                    member1.commit();
+
                     /// MEMBER4
                     SharedPreferences.Editor member4 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER4, MODE_PRIVATE).edit();
                     member4.putString("Mname4", _etName4.getText().toString());
                    // member4.putInt("Mage4", Integer.parseInt(age4));
                     member4.commit();
+
+                    SharedPreferences.Editor age4 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                    member1.putString("Aname4",_etAge4.getText().toString()) ;
+                    member1.commit();
 
 
 

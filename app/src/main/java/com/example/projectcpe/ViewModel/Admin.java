@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 
 @Entity(tableName = "admin")
-public class Admin {
+public  class Admin {
 
     @PrimaryKey
     @ColumnInfo(name = "password")

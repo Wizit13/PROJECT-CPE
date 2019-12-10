@@ -23,21 +23,32 @@
             android:background="@drawable/step_layout"
             >
 
-            <EditText
-                android:id="@+id/answerStep"
+
+            <LinearLayout
+                android:id="@+id/frameEdittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:background="@drawable/bgtext"
-                android:inputType="textPersonName"
-                android:hint="Put your answer"
-                android:fontFamily="@font/thin"
                 android:layout_below="@id/numstep"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/imStep"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/answerStep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bgtext"
+                    android:ems="10"
+
+                    android:fontFamily="@font/thin"
+                    android:gravity="center"
+                    android:hint="Put your answer"
+                    android:inputType="textPersonName"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+            </LinearLayout>
+
 
 
             <TextView
@@ -69,6 +80,20 @@
                 android:padding="4dp"
                 app:srcCompat="@drawable/camera"
                 tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/frameEdittext"
+                android:layout_alignRight="@+id/imStep"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/imStep"
+                app:srcCompat="@drawable/add" />
 
 
         </RelativeLayout>
