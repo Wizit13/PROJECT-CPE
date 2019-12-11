@@ -17,14 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bgtext"
         android:ems="10"
         android:gravity="center"
-        android:background="@drawable/bgtext"
-        android:inputType="textPersonName"
         android:hint="NAME"
-        android:textColor = "#ffff"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline5"
+        android:inputType="textPersonName"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imStep" />
@@ -67,5 +65,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <EditText
+        android:id="@+id/etage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bgtext"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="AGE"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="@+id/etname"
+        app:layout_constraintStart_toStartOf="@+id/etname"
+        app:layout_constraintTop_toBottomOf="@+id/etname" />
 
 </android.support.constraint.ConstraintLayout>

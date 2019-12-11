@@ -37,7 +37,7 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder
     //we are storing all the products in a list
     public static List<Step> stepList;
     private OnCustomrPictureClick onCustomrPictureClick;
-    private OnCustomrPicAddClick onCustomrPicAddClick;
+
 
 
     public StepAdapter(Step[] steps){
@@ -176,12 +176,6 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder
 
         void oncustompictureclick(int pos, ImageView imageView);
     }
-
-    public interface OnCustomrPicAddClick{
-
-        void oncustomaddclick(int pos, LinearLayout frame);
-    }
-
 
 
     }

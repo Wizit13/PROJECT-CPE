@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
@@ -63,19 +63,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/layout_black"
             android:fontFamily="@font/bold"
             android:gravity="center"
             android:text="About this mission"
             android:textColor="#ffff"
             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/numstep"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="@+id/numstep"
-            app:layout_constraintTop_toBottomOf="@+id/Age"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/Age" />
 
         <ImageView
             android:id="@+id/btPlay"
@@ -94,6 +91,20 @@
             app:layout_constraintWidth_percent="0.3"
             app:srcCompat="@drawable/play"
             tools:ignore="VectorDrawableCompat" />
+
+        <TextView
+            android:id="@+id/txDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/thin"
+            android:text="TextView"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/DetailMission"
+            app:layout_constraintStart_toStartOf="@+id/DetailMission"
+            app:layout_constraintTop_toBottomOf="@+id/DetailMission" />
     </android.support.constraint.ConstraintLayout>
 
     <LinearLayout

@@ -15,7 +15,7 @@ import com.example.projectcpe.ViewModel.MissionDATABASE;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MissionDelete extends AppCompatActivity implements MissionAdapter.OnCustomerItemClick {
+public class MissionDelete extends AppCompatActivity implements MissionAdapter.OnCustomerItemClick{
     RecyclerView recyclerView;
     List<Mission> missionsList;
     private MissionAdapter.OnCustomerItemClick onCustomerItemClick;
@@ -36,7 +36,7 @@ public class MissionDelete extends AppCompatActivity implements MissionAdapter.O
 
 
     private void loadData() {
-        RecyclerView.Adapter adapter = new MissionAdapter(getMissionList(), this);
+        RecyclerView.Adapter adapter = new MissionAdapter( getMissionList(), this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -59,7 +59,7 @@ public class MissionDelete extends AppCompatActivity implements MissionAdapter.O
 
 
     @Override
-    public void onCustomerClick(final int pos, int result) {
+    public void onCustomerClick(final int pos, int result, final Mission missionlist) {
 switch (result){
 
     case 0 : new AlertDialog.Builder(MissionDelete.this)
@@ -70,8 +70,8 @@ switch (result){
                         public void onClick(DialogInterface dialogInterface, int i) {
                             switch (i){
                                 case 0:
-                                    MissionDATABASE.getInstance(MissionDelete.this).missionDAO().delete(missionsList.get(pos));
-                                    missionsList.remove(pos);
+                                    MissionDATABASE.getInstance(MissionDelete.this).missionDAO().delete(missionlist);
+                                    missionsList.remove(missionlist);
                                     recreate();
                                     break;
                                 case 1:
@@ -83,6 +83,8 @@ switch (result){
 
 }
     }
+
+
 
 //    @Override
 //    public void onCustomerClick(int adapterPosition) {

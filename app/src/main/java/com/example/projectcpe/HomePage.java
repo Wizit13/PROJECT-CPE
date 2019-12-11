@@ -86,23 +86,28 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Bundle bundle = getIntent().getExtras();
         int Numuser = bundle.getInt("Num");
         String NameUser = bundle.getString("NameUser");
+        String Age = bundle.getString("Age");
 
         switch (Numuser) {
             case 1:
                 imProfile.setImageResource(R.drawable.user1);
                 txName.setText(NameUser);
+                txAge.setText(Age);
                 break;
             case 2:
                 imProfile.setImageResource(R.drawable.user2);
                 txName.setText(NameUser);
+                txAge.setText(Age);
                 break;
             case 3:
                 imProfile.setImageResource(R.drawable.user3);
                 txName.setText(NameUser);
+                txAge.setText(Age);
                 break;
             case 4:
                 imProfile.setImageResource(R.drawable.user4);
                 txName.setText(NameUser);
+                txAge.setText(Age);
                 break;
         }
 
@@ -264,16 +269,21 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     @Override
-    public void onCustomerClick(int pos, int result) {
-        switch (result){
-            case 0 : startActivity(new Intent(getApplicationContext(), DetailMission.class));
+    public void onCustomerClick(int id, int result, Mission missionlist) {
+//        switch (result){
+//            case 0 : startActivity(new Intent(getApplicationContext(), DetailMission.class));
+//
+//            case 1 : loadData();
+//                break;
+//            case 2 : startActivity(new Intent(getApplicationContext(), DetailMission.class));
+//
+//                break;
+//        }
 
-            case 1 : loadData();
-                break;
-            case 2 : startActivity(new Intent(getApplicationContext(), DetailMission.class));
+    Intent i = new Intent(HomePage.this, DetailMission.class);
+    i.putExtra("MissionId", id);
+    startActivity(i);
 
-                break;
-        }
     }
 
 
@@ -283,4 +293,6 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         MissionDATABASE.desInstance();
         super.onDestroy();
     }
+
+
 }

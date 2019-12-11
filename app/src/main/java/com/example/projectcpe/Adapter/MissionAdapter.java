@@ -31,11 +31,14 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionV
     private OnCustomerItemClick onCustomerItemClick;
 
 
+
     public MissionAdapter(List<Mission> c, Context ctx) {
         this.missionList = c;
         this.mCtx = ctx;
         this.onCustomerItemClick = (OnCustomerItemClick) ctx;
     }
+
+
 
     public MissionAdapter(List<Mission> missionList) {
         this.missionList = missionList;
@@ -90,55 +93,63 @@ public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionV
         public boolean onLongClick(View v) {
 
 
-
-            final Dialog dialog = new Dialog(mCtx);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.detail_dialog);
-            dialog.setCancelable(true);
-
-            Button delete = (Button)dialog.findViewById(R.id.ChooseCamera);
-            delete.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-
-
-                    MissionDATABASE.getInstance(mCtx).missionDAO().delete(missionList.get(getAdapterPosition()));
-                    onCustomerItemClick.onCustomerClick(getAdapterPosition(), 1);
-                    dialog.cancel();
-
-                }
-            });
-
-            Button edit = (Button)dialog.findViewById(R.id.ChooseGallary);
-            edit.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                    onCustomerItemClick.onCustomerClick(getAdapterPosition(), 2);
-
-                }
-            });
-
-            dialog.show();
-
-
+//
+//            final Dialog dialog = new Dialog(mCtx);
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//            dialog.setContentView(R.layout.detail_dialog);
+//            dialog.setCancelable(true);
+//
+//            Button delete = (Button)dialog.findViewById(R.id.ChooseCamera);
+//            delete.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//
+//
+//
+//                    MissionDATABASE.getInstance(mCtx).missionDAO().delete(missionList.get(getAdapterPosition()));
+//                    onCustomerItemClick.onCustomerClick(getAdapterPosition(), 1);
+//                    dialog.cancel();
+//
+//                }
+//            });
+//
+//            Button edit = (Button)dialog.findViewById(R.id.ChooseGallary);
+//            edit.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//
+//                    onCustomerItemClick.onCustomerClick(getAdapterPosition(), 2);
+//
+//                }
+//            });
+//
+//            dialog.show();
+//
+//
               return true;
         }
 
         @Override
         public void onClick(View v) {
 
-//            onCustomerItemClick.onCustomerClick(getAdapterPosition(), 0);
-          int iddd = MissionDATABASE.getInstance(mCtx).missionDAO().getDesMission(missionList.get(getAdapterPosition()).getIdMission());
 
-          Toast.makeText(mCtx, String.valueOf(iddd), Toast.LENGTH_LONG).show();
+          int iddd = MissionDATABASE.getInstance(mCtx).missionDAO().getDesMission(missionList.get(getAdapterPosition()).getIdMission());
+            onCustomerItemClick.onCustomerClick(iddd, 0, missionList.get(getAdapterPosition()));
+
+
+//          Toast.makeText(mCtx, String.valueOf(iddd), Toast.LENGTH_LONG).show();
+
+
         }
+
+
 
 
     }
 
     public interface OnCustomerItemClick{
-        void onCustomerClick(int pos, int result);
-
+        void onCustomerClick(int pos, int result, Mission missionList);
 
     }
+
+
+
 }

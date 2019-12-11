@@ -6,6 +6,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.List;
 
 import io.reactivex.annotations.NonNull;
 
@@ -30,10 +31,18 @@ public class Mission implements Serializable {
     private int age;
 
 
+
      @Ignore
+
+     public List<Mission> missionList;
     public Mission(String missionName, int age) {
         this.missionName = missionName;
         this.age = age;
+    }
+
+    public List<Mission> getDetailmissionList()
+    {
+        return missionList;
     }
 
 

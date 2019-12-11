@@ -27,8 +27,13 @@ public class FunctionEditProfile extends AppCompatActivity {
     public static final String MY_PRE_PASSWORD_MEMBER3 = "com.example.projectcpe.member3";
     public static final String MY_PRE_PASSWORD_MEMBER4 = "com.example.projectcpe.member4";
 
+    public static final String MY_PRE_AGE_MEMBER1 = "com.example.projectcpe.agemember1";
+    public static final String MY_PRE_AGE_MEMBER2 = "com.example.projectcpe.agemember2";
+    public static final String MY_PRE_AGE_MEMBER3 = "com.example.projectcpe.agemember3";
+    public static final String MY_PRE_AGE_MEMBER4 = "com.example.projectcpe.agemember4";
+
     ImageView impro1, impro2, impro3, impro4;
-    TextView txtpro1, txtpro2, txtpro3, txtpro4;
+    TextView txtpro1, txtpro2, txtpro3, txtpro4, txtage1, txtage2, txtage3, txtage4;
     ViewGroup layout1, layout2, layout3, layout4;
 
     @Override
@@ -43,27 +48,47 @@ public class FunctionEditProfile extends AppCompatActivity {
         SharedPreferences getMember3 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER3, MODE_PRIVATE);
         SharedPreferences getMember4 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER4, MODE_PRIVATE);
 
+        SharedPreferences getAge1 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE);
+        SharedPreferences getAge2 = getSharedPreferences(MY_PRE_AGE_MEMBER2, MODE_PRIVATE);
+        SharedPreferences getAge3 = getSharedPreferences(MY_PRE_AGE_MEMBER3, MODE_PRIVATE);
+        SharedPreferences getAge4 = getSharedPreferences(MY_PRE_AGE_MEMBER4, MODE_PRIVATE);
+
         /// MEMBER 1
         String getName1 = "";
+        String Age1 = "";
         String name1 = getMember1.getString("Mname1", getName1);
+        String aname1 = getAge1.getString("Aname1", Age1);
+
+        Toast.makeText(getApplicationContext(), aname1,Toast.LENGTH_SHORT).show();
 
         /// MEMBER 2
         String getName2 = "";
+        String Age2 = "";
         String name2 = getMember2.getString("Mname2", getName2);
+        String aname2 = getAge2.getString("Aname2", Age2);
 
         /// MEMBER 3
         String getName3 = "";
+        String Age3 = "";
         String name3 = getMember3.getString("Mname3", getName3);
+        String aname3 = getAge3.getString("Aname3", Age3);
 
         /// MEMBER 4
         String getName4 = "";
+        String Age4 = "";
         String name4 = getMember4.getString("Mname4", getName4);
+        String aname4 = getAge4.getString("Aname4", Age4);
 
 
         txtpro1.setText(name1);
         txtpro2.setText(name2);
         txtpro3.setText(name3);
         txtpro4.setText(name4);
+
+        txtage1.setText(" Age: "+aname1);
+        txtage2.setText(" Age: "+aname2);
+        txtage3.setText(" Age: "+aname3);
+        txtage4.setText(" Age: "+aname4);
 
         layout1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -77,8 +102,6 @@ public class FunctionEditProfile extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 TranformerGarbag();
                     ChooseMember();
-
-
 
                 return true;
             }
@@ -116,6 +139,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                     dialog.setCancelable(true);
 
                     final EditText _etName = dialog.findViewById(R.id.etname);
+                    final EditText _etAge = dialog.findViewById(R.id.etage);
 
                     Button btSubmit = (Button)dialog.findViewById(R.id.ChooseGallary);
                     btSubmit.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +152,10 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 SharedPreferences.Editor newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER1, MODE_PRIVATE).edit();
                                 newPass.putString("Mname1", _etName.getText().toString());
                                 newPass.commit();
+
+                                SharedPreferences.Editor newAge = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                                newAge.putString("Aname1", String.valueOf(_etAge.getText()));
+                                newAge.commit();
                                 startActivity(new Intent(FunctionEditProfile.this, FunctionEditProfile.class));
                                 finish();
 
@@ -153,8 +181,9 @@ public class FunctionEditProfile extends AppCompatActivity {
 //                            i2.putExtra("Num", 1);
                     i.putExtra("NameUser", txtpro1.getText());
                     i.putExtra("Num", 1);
+                    i.putExtra("Age", txtage1.getText().toString());
                     startActivity(i);
-                    finish();
+//                    finish();
 
 
 
@@ -181,6 +210,7 @@ public class FunctionEditProfile extends AppCompatActivity {
 
                     final Button btSubmit = dialog.findViewById(R.id.ChooseGallary);
                     final EditText _etName = dialog.findViewById(R.id.etname);
+                    final EditText _etAge = dialog.findViewById(R.id.etage);
                     btSubmit.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
 
@@ -193,6 +223,10 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 SharedPreferences.Editor newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER2, MODE_PRIVATE).edit();
                                 newPass.putString("Mname2", _etName.getText().toString());
                                 newPass.commit();
+
+                                SharedPreferences.Editor newAge = getSharedPreferences(MY_PRE_AGE_MEMBER2, MODE_PRIVATE).edit();
+                                newAge.putString("Aname2", String.valueOf(_etAge.getText()));
+                                newAge.commit();
 
                                 startActivity(new Intent(FunctionEditProfile.this, FunctionEditProfile.class));
                                 finish();
@@ -221,8 +255,9 @@ public class FunctionEditProfile extends AppCompatActivity {
 //                            i2.putExtra("Num", 1);
                     i.putExtra("NameUser", txtpro2.getText());
                     i.putExtra("Num", 2);
+                    i.putExtra("Age", txtage2.getText().toString());
                     startActivity(i);
-                    finish();
+
 
 
                 }
@@ -244,6 +279,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                     dialog.setCancelable(true);
 
                     final EditText _etName = dialog.findViewById(R.id.etname);
+                    final EditText _etAge = dialog.findViewById(R.id.etage);
 
                     Button btSubmit = (Button)dialog.findViewById(R.id.ChooseGallary);
                     btSubmit.setOnClickListener(new View.OnClickListener() {
@@ -256,6 +292,10 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 SharedPreferences.Editor newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER3, MODE_PRIVATE).edit();
                                 newPass.putString("Mname3", _etName.getText().toString());
                                 newPass.commit();
+
+                                SharedPreferences.Editor newAge = getSharedPreferences(MY_PRE_AGE_MEMBER3, MODE_PRIVATE).edit();
+                                newAge.putString("Aname3", String.valueOf(_etAge.getText()));
+                                newAge.commit();
                                 startActivity(new Intent(FunctionEditProfile.this, FunctionEditProfile.class));
                                 finish();
 
@@ -282,8 +322,8 @@ public class FunctionEditProfile extends AppCompatActivity {
 //                            i2.putExtra("Num", 1);
                     i.putExtra("NameUser", txtpro3.getText());
                     i.putExtra("Num", 3);
+                    i.putExtra("Age", txtage3.getText().toString());
                     startActivity(i);
-                    finish();
 
 
                 }
@@ -304,6 +344,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                     dialog.setCancelable(true);
 
                     final EditText _etName = dialog.findViewById(R.id.etname);
+                    final EditText _etAge = dialog.findViewById(R.id.etage);
 
                     Button btSubmit = (Button)dialog.findViewById(R.id.ChooseGallary);
                     btSubmit.setOnClickListener(new View.OnClickListener() {
@@ -316,6 +357,10 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 SharedPreferences.Editor newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER4, MODE_PRIVATE).edit();
                                 newPass.putString("Mname4", _etName.getText().toString());
                                 newPass.commit();
+
+                                SharedPreferences.Editor newAge = getSharedPreferences(MY_PRE_AGE_MEMBER4, MODE_PRIVATE).edit();
+                                newAge.putString("Aname4", String.valueOf(_etAge.getText()));
+                                newAge.commit();
                                 startActivity(new Intent(FunctionEditProfile.this, FunctionEditProfile.class));
                                 finish();
 
@@ -342,8 +387,9 @@ public class FunctionEditProfile extends AppCompatActivity {
 //                            i2.putExtra("Num", 1);
                     i.putExtra("NameUser", txtpro4.getText());
                     i.putExtra("Num", 4);
+                    i.putExtra("Age", txtage4.getText().toString());
                     startActivity(i);
-                    finish();
+
 
 
                 }
@@ -393,6 +439,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                 switch (choice) {
                     case DialogInterface.BUTTON_POSITIVE:
                         SharedPreferences.Editor newPass;
+                        SharedPreferences.Editor newAge;
                         Map<String, Object> childUpdates = new HashMap<>();
                         switch (member) {
                             case "member1" :
@@ -400,11 +447,19 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 newPass.putString("Mname1", null);
                                 newPass.commit();
 
+                                newAge = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE).edit();
+                                newAge.putString("Aname1", null);
+                                newAge.commit();
+
                                 break;
                             case "member2" :
                                 newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER2, MODE_PRIVATE).edit();
                                 newPass.putString("Mname2", null);
                                 newPass.commit();
+
+                                newAge = getSharedPreferences(MY_PRE_AGE_MEMBER2, MODE_PRIVATE).edit();
+                                newAge.putString("Aname2", null);
+                                newAge.commit();
 
                                 break;
                             case "member3" :
@@ -412,11 +467,19 @@ public class FunctionEditProfile extends AppCompatActivity {
                                 newPass.putString("Mname3", null);
                                 newPass.commit();
 
+                                newAge = getSharedPreferences(MY_PRE_AGE_MEMBER3, MODE_PRIVATE).edit();
+                                newAge.putString("Aname3", null);
+                                newAge.commit();
+
                                 break;
                             case "member4" :
                                 newPass = getSharedPreferences(MY_PRE_PASSWORD_MEMBER4, MODE_PRIVATE).edit();
                                 newPass.putString("Mname4", null);
                                 newPass.commit();
+
+                                newAge = getSharedPreferences(MY_PRE_AGE_MEMBER4, MODE_PRIVATE).edit();
+                                newAge.putString("Aname4", null);
+                                newAge.commit();
 
                                 break;
 
@@ -493,27 +556,49 @@ public class FunctionEditProfile extends AppCompatActivity {
         SharedPreferences getMember3 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER3, MODE_PRIVATE);
         SharedPreferences getMember4 = getSharedPreferences(MY_PRE_PASSWORD_MEMBER4, MODE_PRIVATE);
 
+        SharedPreferences getAge1 = getSharedPreferences(MY_PRE_AGE_MEMBER1, MODE_PRIVATE);
+        SharedPreferences getAge2 = getSharedPreferences(MY_PRE_AGE_MEMBER2, MODE_PRIVATE);
+        SharedPreferences getAge3 = getSharedPreferences(MY_PRE_AGE_MEMBER3, MODE_PRIVATE);
+        SharedPreferences getAge4 = getSharedPreferences(MY_PRE_AGE_MEMBER4, MODE_PRIVATE);
+
+
+
         /// MEMBER 1
         String getName1 = "";
+        String Age1 = "";
         String name1 = getMember1.getString("Mname1", getName1);
+        String age1 = getAge1.getString("Aname1", Age1);
 
         /// MEMBER 2
         String getName2 = "";
+        String Age2 = "";
         String name2 = getMember2.getString("Mname2", getName2);
+        String age2 = getAge2.getString("Aname2", Age2);
 
         /// MEMBER 3
         String getName3 = "";
+        String Age3 = "";
         String name3 = getMember3.getString("Mname3", getName3);
+        String age3 = getAge3.getString("Aname3", Age3);
 
         /// MEMBER 4
         String getName4 = "";
+        String Age4 = "";
         String name4 = getMember4.getString("Mname4", getName4);
+        String age4 = getAge4.getString("Aname4", Age3);
 
 
         txtpro1.setText(name1);
         txtpro2.setText(name2);
         txtpro3.setText(name3);
         txtpro4.setText(name4);
+
+        txtage1.setText(age1);
+        txtage2.setText(age2);
+        txtage3.setText(age3);
+        txtage4.setText(age4);
+
+
     }
 
     private void Initia() {
@@ -527,6 +612,12 @@ public class FunctionEditProfile extends AppCompatActivity {
         txtpro2 = findViewById(R.id.profile2);
         txtpro3 = findViewById(R.id.profile3);
         txtpro4 = findViewById(R.id.profile4);
+
+        txtage1 = findViewById(R.id.age1);
+        txtage2 = findViewById(R.id.age2);
+        txtage3 = findViewById(R.id.age3);
+        txtage4 = findViewById(R.id.age4);
+
 
         layout1 = findViewById(R.id.layout1);
         layout2 = findViewById(R.id.layout2);
