@@ -591,6 +591,8 @@ public class FunctionEditProfile extends AppCompatActivity {
         txtpro1.setText(name1);
         txtpro2.setText(name2);
         txtpro3.setText(name3);
+
+        //
         txtpro4.setText(name4);
 
         txtage1.setText(age1);
