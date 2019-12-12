@@ -7,7 +7,7 @@
     tools:context=".PlayingMode.Feedback"
     android:background="#F17784">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutlogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:id="@+id/star1"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/hindstar"
+            app:srcCompat="@drawable/hindstar"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="300"
             app:layout_constraintCircleRadius="95dp"
@@ -41,7 +41,7 @@
             android:id="@+id/star2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/hindstar"
+            app:srcCompat="@drawable/hindstar"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="330"
             app:layout_constraintCircleRadius="100dp"
@@ -51,7 +51,7 @@
             android:id="@+id/star3"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/hindstar"
+            app:srcCompat="@drawable/hindstar"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="360"
             app:layout_constraintCircleRadius="105dp"
@@ -61,7 +61,7 @@
             android:id="@+id/star4"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/hindstar"
+            app:srcCompat="@drawable/hindstar"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="30"
             app:layout_constraintCircleRadius="100dp"
@@ -71,7 +71,7 @@
             android:id="@+id/star5"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/hindstar"
+            app:srcCompat="@drawable/hindstar"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="60"
             app:layout_constraintCircleRadius="95dp"
@@ -82,7 +82,7 @@
             android:id="@+id/fullstar1"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/fullstar"
+            app:srcCompat="@drawable/fullstar"
             android:visibility="gone"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="300"
@@ -93,7 +93,7 @@
             android:id="@+id/fullstar2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/fullstar"
+            app:srcCompat="@drawable/fullstar"
             android:visibility="gone"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="330"
@@ -104,7 +104,7 @@
             android:id="@+id/fullstar3"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/fullstar"
+            app:srcCompat="@drawable/fullstar"
             android:visibility="gone"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="360"
@@ -115,7 +115,7 @@
             android:id="@+id/fullstar4"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/fullstar"
+            app:srcCompat="@drawable/fullstar"
             android:visibility="gone"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="30"
@@ -126,7 +126,7 @@
             android:id="@+id/fullstar5"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/fullstar"
+            app:srcCompat="@drawable/fullstar"
             android:visibility="gone"
             app:layout_constraintCircle="@id/mainStar"
             app:layout_constraintCircleAngle="60"
@@ -135,7 +135,7 @@
 
 
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView7"

@@ -1,27 +1,25 @@
 package com.example.projectcpe;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectcpe.Adapter.MissionAdapter;
 import com.example.projectcpe.CreateMission.MissionCreate;
@@ -32,6 +30,8 @@ import com.example.projectcpe.PlayingMode.DetailMission;
 import com.example.projectcpe.TestSystem.TestSystem;
 import com.example.projectcpe.ViewModel.Mission;
 import com.example.projectcpe.ViewModel.MissionDATABASE;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
        loadData();
 
 
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -233,31 +233,10 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 
-
-//    @Override
-//    public void onCustomerClick(final int pos, final int result) {
-//
-//
-//        switch (result){
-//            case 0 : startActivity(new Intent(getApplicationContext(),DetailMission.class));
-//            break;
-//
-//
-//
-//
-//
-//
-//
-//        }
-//}
-
     public void loadData(){
         RecyclerView.Adapter adapter = new MissionAdapter(getMissionList(),this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-
         recyclerView.setAdapter(adapter);
     }
 

@@ -1,27 +1,23 @@
 package com.example.projectcpe.Adapter;
 
-import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.projectcpe.CreateMission.FinallyCreate;
 import com.example.projectcpe.R;
-import com.example.projectcpe.ViewModel.Mission;
 import com.example.projectcpe.ViewModel.Step;
 
 import java.util.List;
@@ -65,20 +61,55 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StepAdapter.StepViewHolder stepViewHolder, int position) {
+    public void onBindViewHolder(@NonNull final StepAdapter.StepViewHolder stepViewHolder, final int position) {
         Step step = (Step) stepList.get(position);
 
 //        stepViewHolder.imStep.setImageResource(step.getPhoto());
         stepViewHolder.Numstep.setText(String.valueOf(position+1));
 
-//        stepViewHolder.add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(mCtx, "add",Toast.LENGTH_SHORT).show();
-//
-//                ((FinallyCreate)mCtx).NewText((EditText) view);
-//            }
-//        });
+        stepViewHolder.score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(mCtx);
+                dialog.getWindow().setBackgroundDrawableResource(R.drawable.framedetailstep);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.put_detail_step);
+                dialog.setCancelable(true);
+
+                TextView textHead = dialog.findViewById(R.id.head);
+                textHead.setText("Set a score of step "+String.valueOf(position+1));
+                dialog.show();
+
+            }
+        });
+
+        stepViewHolder.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                final EditText textView = new EditText(mCtx);
+
+                layoutParams.setMargins(0,5,0,0);
+                layoutParams.weight = 1;
+
+                textView.setTypeface(ResourcesCompat.getFont(mCtx, R.font.thin));
+                textView.setLayoutParams(layoutParams);
+                textView.setTextSize(16);
+
+                textView.setGravity(Gravity.CENTER);
+                textView.setBackgroundResource(R.drawable.bgtext);
+                textView.setHint("Put your answer");
+                textView.setMaxEms(8);
+
+
+
+                stepViewHolder.frameEdittextthis.addView(textView);
+
+
+            }
+        });
+
 
     }
 
@@ -90,7 +121,7 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder
 
     public class StepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        ImageView imStep,add;
+        ImageView imStep,add,score;
         EditText answerStep;
         TextView Numstep;
         public LinearLayout frameEdittextthis;
@@ -102,40 +133,20 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder
         public StepViewHolder(@NonNull final View itemView) {
             super(itemView);
 
-            imStep = itemView.findViewById(R.id.imStep);
+            imStep = itemView.findViewById(R.id.head);
             answerStep = itemView.findViewById(R.id.answerStep);
             Numstep = itemView.findViewById(R.id.numstep);
             add = itemView.findViewById(R.id.add);
             frameEdittextthis = itemView.findViewById(R.id.frameEdittext);
+            score = itemView.findViewById(R.id.score);
 
             imStep.setOnClickListener(this);
 
             frameEdittext = this.frameEdittextthis;
 
-            add.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    final EditText textView = new EditText(mCtx);
-
-                    layoutParams.setMargins(0,5,0,0);
-                    layoutParams.weight = 1;
-
-                    textView.setTypeface(ResourcesCompat.getFont(mCtx, R.font.thin));
-                    textView.setLayoutParams(layoutParams);
-                    textView.setTextSize(16);
-                    
-                    textView.setGravity(Gravity.CENTER);
-                    textView.setBackgroundResource(R.drawable.bgtext);
-                    textView.setHint("Put your answer");
-                    textView.setMaxEms(8);
 
 
 
-                    frameEdittextthis.addView(textView);
-                }
-            });
 
 
 

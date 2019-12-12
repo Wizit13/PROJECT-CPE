@@ -1,12 +1,9 @@
 package com.example.projectcpe;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +13,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -163,11 +164,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-//                    Intent i = new Intent(FunctionEditProfile.this, addmember.class);
-//                    i.putExtra("Num", 1);
-//                    i.putExtra("m", "member1");
-//                    startActivity(i);
-//                    finish();
+
 
                 }
             });
@@ -236,11 +233,6 @@ public class FunctionEditProfile extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-//                    Intent i = new Intent(FunctionEditProfile.this, addmember.class);
-//                    i.putExtra("Num", 1);
-//                    i.putExtra("m", "member1");
-//                    startActivity(i);
-//                    finish();
 
                 }
             });
@@ -303,11 +295,7 @@ public class FunctionEditProfile extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-//                    Intent i = new Intent(FunctionEditProfile.this, addmember.class);
-//                    i.putExtra("Num", 1);
-//                    i.putExtra("m", "member1");
-//                    startActivity(i);
-//                    finish();
+
 
                 }
             });
@@ -317,9 +305,6 @@ public class FunctionEditProfile extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(FunctionEditProfile.this, HomePage.class);
-//                            Intent i2 = new Intent(MenageProfile.this, DispPersonal.class);
-//                            i2.putExtra("NameUser", profile1.getText());
-//                            i2.putExtra("Num", 1);
                     i.putExtra("NameUser", txtpro3.getText());
                     i.putExtra("Num", 3);
                     i.putExtra("Age", txtage3.getText().toString());
@@ -368,11 +353,6 @@ public class FunctionEditProfile extends AppCompatActivity {
                         }
                     });
                     dialog.show();
-//                    Intent i = new Intent(FunctionEditProfile.this, addmember.class);
-//                    i.putExtra("Num", 1);
-//                    i.putExtra("m", "member1");
-//                    startActivity(i);
-//                    finish();
 
                 }
             });

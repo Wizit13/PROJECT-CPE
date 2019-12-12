@@ -6,41 +6,71 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/frameline"
-    android:padding="40dp"
+    android:background="@drawable/framedetailstep"
+    android:padding="20dp"
     android:layout_gravity="center"
     >
 
-    <EditText
-        android:id="@+id/etname"
+    <FrameLayout
+        android:id="@+id/dad"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/bgtext"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="NAME"
-        android:inputType="textPersonName"
-        android:textColor="#ffff"
+        android:background="@drawable/frame"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
+        app:layout_constraintTop_toBottomOf="@+id/head"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5">
 
-    <ImageView
+
+        <androidx.core.widget.NestedScrollView
+
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5">
+
+            <LinearLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                 >
+
+
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </FrameLayout>
+
+
+
+    <TextView
         android:id="@+id/head"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@id/etname"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/bold"
+        android:text="HEAD"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@id/dad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/accout"
-        tools:ignore="VectorDrawableCompat" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -55,31 +85,16 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button"
+        android:background="@drawable/buttondetail"
         android:fontFamily="@font/bold"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="SUBMIT"
+        android:text="SAVE"
         android:textColor="#ffff"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
-    <EditText
-        android:id="@+id/etage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/bgtext"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="AGE"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="@+id/etname"
-        app:layout_constraintStart_toStartOf="@+id/etname"
-        app:layout_constraintTop_toBottomOf="@+id/etname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

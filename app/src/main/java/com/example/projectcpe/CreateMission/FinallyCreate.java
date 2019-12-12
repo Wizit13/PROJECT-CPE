@@ -2,37 +2,31 @@ package com.example.projectcpe.CreateMission;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectcpe.Adapter.StepAdapter;
 import com.example.projectcpe.Main2Activity;
 import com.example.projectcpe.R;
-import com.example.projectcpe.ViewModel.Mission;
-import com.example.projectcpe.ViewModel.MissionDATABASE;
 import com.example.projectcpe.ViewModel.Step;
 
 import java.util.ArrayList;
@@ -114,9 +108,7 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
     private void NumStepListener(int mediumNum) {
 
         for (int i = 1 ; i <= mediumNum ;i++) {
-            steplist.add(
-                    new Step());
-
+            steplist.add(new Step());
         }
 
         adapter = new StepAdapter(steplist, this);
@@ -204,11 +196,12 @@ public class FinallyCreate extends AppCompatActivity implements StepAdapter.OnCu
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
 
-        if(resultCode == RESULT_OK){
-            if(requestCode == CAMERA_RESULT_CODE || requestCode == RESULT_LOAD_IMAGE){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == CAMERA_RESULT_CODE || requestCode == RESULT_LOAD_IMAGE) {
                 Bundle bd = data.getExtras();
                 Bitmap bmp = (Bitmap) bd.get("data");
-                if (bmp!=null) {
+                if (bmp != null) {
                     setPic(bmp);
                 }
 
