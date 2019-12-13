@@ -19,6 +19,8 @@ import java.util.List;
 public class MissionAdapter extends RecyclerView.Adapter<MissionAdapter.MissionViewHolder> {
 
 
+    //
+
 
     //this context we will use to inflate the layout
     private Context mCtx;
